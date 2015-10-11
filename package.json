@@ -1,0 +1,35 @@
+{
+  "name": "ssr",
+  "version": "1.0.0",
+  "description": "Setting a directory to a static server.",
+  "bin": {
+    "ssr": ".bin/ssr.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ssr",
+    "server",
+    "iserver",
+    "command", 
+    "cli", 
+    "parsing", 
+    "parser", 
+    "option", 
+    "args", 
+    "argument",
+    "tool"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaywcjlove/ssr.git"
+  },
+  "author": "kenny wang <wowohoo@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^3.27.0",
+    "colorful": "^2.1.0"
+  }
+}
