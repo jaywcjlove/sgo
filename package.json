@@ -1,6 +1,6 @@
 {
   "name": "ssr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Setting a directory to a static server.",
   "bin": {
     "ssr": ".bin/ssr.js"
@@ -13,12 +13,12 @@
     "ssr",
     "server",
     "iserver",
-    "command", 
-    "cli", 
-    "parsing", 
-    "parser", 
-    "option", 
-    "args", 
+    "command",
+    "cli",
+    "parsing",
+    "parser",
+    "option",
+    "args",
     "argument",
     "tool"
   ],
