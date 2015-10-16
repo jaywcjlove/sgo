@@ -4,6 +4,7 @@ var http = require("http"),
     fs = require("fs"),
     net = require("net"),
     color = require('colorful'),
+    catalog = require('./lib/catalog'),
     __port = 1987,
     server;
 
@@ -19,30 +20,25 @@ connListener = function(request, response) {
 
     console.log(color.green(" INFO "),filename);
 
-    fs.exists(filename, function(exists) {
-        if(!exists) {
-            response.writeHead(404, {"Content-Type": "text/plain"});
-            response.write("404 Not Found\n");
-            response.end();
-            return;
-        }
+    var html = catalog(filename);
 
-        if (fs.statSync(filename).isDirectory()) filename += '/index.html';
+    if(fs.existsSync(filename) && fs.statSync(filename).isFile()){
 
         fs.readFile(filename, "binary", function(err, file) {
-            if(err) {        
-                response.writeHead(500, {"Content-Type": "text/plain"});
-                response.write(err + "\n");
-                response.end();
-                return;
-            }
-
             response.writeHead(200);
             response.write(file, "binary");
             response.end();
+            return;
         });
 
-    });
+    }else{
+        
+        response.writeHead(200, {"Content-Type": "text/html"});
+        response.write(html);
+        response.end();
+        return;
+
+    }
 
 }
 
