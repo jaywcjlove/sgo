@@ -22,8 +22,8 @@ connListener = function(request, response) {
 
     var html = catalog(filename);
 
-    if( (fs.existsSync(filename) && fs.statSync(filename).isFile()) || 
-        (fs.statSync(filename).isDirectory() && (filename += '/index.html')) ){
+    if( fs.existsSync(filename) && fs.statSync(filename).isDirectory() && fs.existsSync(filename + '/index.html') ) filename += '/index.html';
+    if( fs.existsSync(filename) && fs.statSync(filename).isFile() ){
 
         fs.readFile(filename, "binary", function(err, file) {
             response.writeHead(200);
