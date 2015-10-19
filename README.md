@@ -14,12 +14,13 @@ npm install -g ssr
 ```
 Usage: ssr [options]
 
-选项：
-
-  --help, -h         output usage information.
-  --version, -V, -v  output the version number. 
+Options:
+  --help, -h         Show help                                        
+  --version, -V, -v  Show version number                              
   --port, -p         Set the port!
+  --cors, -c         allows cross origin access serving
 
+  copyright 2015
 ```
 
 命令使用 `ssr`  
@@ -27,6 +28,7 @@ Usage: ssr [options]
 ```bash
 $ ssr           # 默认 端口 1987   访问地址：=> http://localhost:1987
 $ ssr -p 2015   # 端口设置 2015   访问地址：=> http://localhost:2015
+$ ssr -cp 2015   #端口设置 2015  并且 可以跨域访问
 ```
 
 **注意：** 默认不传端口，起多个服务不会发生端口冲突，尽情玩耍吧。
