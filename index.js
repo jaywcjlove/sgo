@@ -26,9 +26,12 @@ connListener = function(request, response) {
     // url 解码
     filename = decodeURIComponent(filename);
 
+    if(request.url === '/favicon.ico') return;
+
     console.log(color.green(" INFO "),filename);
 
-    var html = catalog(filename);
+    // var html = catalog(filename);
+    var html = catalog(process.cwd()+request.url);
 
     if( fs.existsSync(filename) && fs.statSync(filename).isDirectory() && fs.existsSync(filename + '/index.html') ) filename += '/index.html';
     if( fs.existsSync(filename) && fs.statSync(filename).isFile() ){
