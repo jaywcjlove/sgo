@@ -8,6 +8,13 @@ h1{
     margin: 0 0;
     font-size: 16px;
     font-weight: bold;
+    word-break:break-all;
+}
+
+h1 a {
+    padding: 0 3px;
+    font-weight: normal;
+    vertical-align: text-bottom;
 }
 
 ul,li{
@@ -22,6 +29,8 @@ ul{
     border-radius: 5px;
     background-color: #F4F4F4;
 }
+
+
 li.dir {
     font-weight: bold;
 }
@@ -54,6 +63,7 @@ ul a:hover{
 .copyright a {
     color: #d6ddf8;
     text-decoration: underline;
+    clear: both;
 }
 .copyright a:hover {
     color: #333;
