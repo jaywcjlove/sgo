@@ -16,7 +16,7 @@ connListener = function(request, response) {
     var uri = url.parse(request.url).pathname, 
         filename = path.join(process.cwd(), uri),
         _header = !cors ? {
-            "Content-Type": "text/html"
+            
         }:{
             "Access-Control-Allow-Origin":"*",
             'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,OPTIONS',
@@ -45,7 +45,7 @@ connListener = function(request, response) {
 
     }else{
 
-        response.writeHead(200, {"Content-Type": "text/html"});
+        response.writeHead(200, {});
         response.write(html);
         response.end();
         return;
