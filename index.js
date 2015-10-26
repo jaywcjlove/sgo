@@ -16,7 +16,7 @@ connListener = function(request, response) {
     var uri = url.parse(request.url).pathname, 
         filename = path.join(process.cwd(), uri),
         _header = !cors ? {
-            
+
         }:{
             "Access-Control-Allow-Origin":"*",
             'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,OPTIONS',
@@ -113,8 +113,11 @@ function serverStart(_port){
 }
 
 function server(argv){
+    
+    var pt = '';
 
-    var pt = argv.port || __port;
+    if(argv && argv.port) pt = argv.port;
+    else pt = __port;
 
     if(argv.port === true) pt = __port;
 
