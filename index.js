@@ -119,9 +119,9 @@ function server(argv){
     if(argv && argv.port) pt = argv.port;
     else pt = __port;
 
-    if(argv.port === true) pt = __port;
+    if(argv && argv.port === true) pt = __port;
 
-    argv.cors ? cors = true : cors = false;
+    (argv && argv.cors) ? cors = true : cors = false;
 
     serverStart(pt);
 }
