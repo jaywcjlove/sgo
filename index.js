@@ -23,6 +23,11 @@ connListener = function(request, response) {
             'Access-Control-Allow-Headers':'Content-Type, Authorization, Content-Length, X-Requested-With, Accept, x-csrf-token, origin'
         };
 
+    var ext = path.parse(request.url).ext;
+    if(ext === '.svg'){
+        _header['Content-Type'] = 'image/svg+xml';
+    }
+
     // url 解码
     filename = decodeURIComponent(filename);
 
