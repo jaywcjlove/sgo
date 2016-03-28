@@ -3,6 +3,7 @@ var http = require("http"),
     path = require("path"),
     fs = require("fs"),
     net = require("net"),
+    ctype = require("./lib/content-type"),
     color = require('colorful'),
     catalog = require('./lib/catalog'),
     __port = 1987,
@@ -23,10 +24,8 @@ connListener = function(request, response) {
             'Access-Control-Allow-Headers':'Content-Type, Authorization, Content-Length, X-Requested-With, Accept, x-csrf-token, origin'
         };
 
-    var ext = path.parse(request.url).ext;
-    if(ext === '.svg'){
-        _header['Content-Type'] = 'image/svg+xml';
-    }
+    var ext = path.parse(request.url).ext.replace('.','');
+    if(ext) _header['Content-Type'] = ctype.getContentType(ext);
 
     // url 解码
     filename = decodeURIComponent(filename);
