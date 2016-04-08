@@ -1,6 +1,6 @@
 {
   "name": "ssr",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Setting a directory to a static server.",
   "bin": {
     "ssr": ".bin/ssr.js"
