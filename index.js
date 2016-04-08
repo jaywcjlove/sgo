@@ -24,7 +24,7 @@ connListener = function(request, response) {
             'Access-Control-Allow-Headers':'Content-Type, Authorization, Content-Length, X-Requested-With, Accept, x-csrf-token, origin'
         };
 
-    var ext = path.parse(request.url).ext.replace('.','');
+    var ext = path.parse(request.url.replace(/\?.*$/g, "")).ext.replace('.','');
     if(ext) _header['Content-Type'] = ctype.getContentType(ext);
 
     // url 解码
@@ -32,9 +32,6 @@ connListener = function(request, response) {
 
     if(request.url === '/favicon.ico') return;
 
-    console.log(color.green(" INFO "),filename);
-
-    // var html = catalog(filename);
     var html = catalog(process.cwd()+request.url);
 
     if( fs.existsSync(filename) && fs.statSync(filename).isDirectory() && fs.existsSync(filename + '/index.html') ) filename += '/index.html';
