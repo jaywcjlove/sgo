@@ -29,7 +29,7 @@
   "author": "kenny wang <wowohoo@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "colorful": "^2.1.0",
+    "colors-cli": "^1.0.7",
     "yargs": "^3.27.0"
   }
 }

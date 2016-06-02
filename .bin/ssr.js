@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-var yargs = require('yargs')
-var pkg = require('../package.json')
-var server = require('../index')
-var server = require('../index')
-var color = require('colorful')
+var yargs = require('yargs');
+var pkg = require('../package.json');
+var server = require('../index');
+var color = require('colors-cli');
   
 var argv = yargs
   .usage('\n\nThis is simple server!\n\nUsage: $0 [options]')
