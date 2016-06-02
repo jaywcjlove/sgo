@@ -9,11 +9,11 @@ var http = require("http"),
     __port = 1987,
     cors = false,
     server;
+    require('colors-cli/toxic');
 
 module.exports = server;
 
 connListener = function(request, response) {
-
     var uri = url.parse(request.url).pathname, 
         filename = path.join(process.cwd(), uri),
         _header = !cors ? {
@@ -30,29 +30,37 @@ connListener = function(request, response) {
     // url 解码
     filename = decodeURIComponent(filename);
 
-    if(request.url === '/favicon.ico') return;
-
     var html = catalog(process.cwd()+request.url);
 
     if( fs.existsSync(filename) && fs.statSync(filename).isDirectory() && fs.existsSync(filename + '/index.html') ) filename += '/index.html';
     if( fs.existsSync(filename) && fs.statSync(filename).isFile() ){
-
+        
         fs.readFile(filename, "binary", function(err, file) {
             response.writeHead(200,_header);
             response.write(file, "binary");
             response.end();
+            commandLog(200,request,response)
             return;
         });
 
     }else{
-
-        response.writeHead(200, {});
-        response.write(html);
+        response.writeHead(404, {});
+        response.write('Not found');
         response.end();
+        commandLog(404,request,response)
         return;
 
     }
 
+}
+// 命令行颜色显示
+function commandLog(staus,request,response){
+    var code = response.statusCode;
+    if(code === 200){
+        console.log( 'INFO '.green_bt +  code.toString().green_bt + ' ' + request.url )
+    }else{
+        console.log( 'INFO '.red_bt +  code.toString().red_bt + ' ' + request.url );
+    }
 }
 
 // 检测port是否存在
