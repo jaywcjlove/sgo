@@ -45,7 +45,7 @@ connListener = function(request, response) {
 
     }else{
         response.writeHead(404, {});
-        response.write('Not found');
+        response.write(html);
         response.end();
         commandLog(404,request,response)
         return;
