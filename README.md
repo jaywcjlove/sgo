@@ -24,6 +24,7 @@ Options:
   --version, -V, -v  Show version number                              
   --port, -p         Set the port!
   --cors, -c         allows cross origin access serving
+  --proxy            Local data mock                         [string]
 
   copyright 2015
 ```
@@ -44,14 +45,40 @@ $ ssr -cp 2015   #端口设置 2015  并且 可以跨域访问
 
 - 建两个目录文件 `dir1` 和 `dir2` 
 - 分别进入这两个目录使用`ssr`起服务
-- `dir1` 运行`ssr -cp 1987` 起来之后为 `http://localhost:1987`，`dir2` 运行 `ssr -cp 2015` 起来之后地址为 `http://localhost:2015` 
+- `dir1` 运行`ssr -cp 1987` 起来之后为 `http://localhost:1987`，`dir2` 运行 `ssr -cp 2015` 起来之后地址为 `http://localhost:2015`
+
+
+## 本地数据 mock
+
+### 方法一
+
 - 在 `dir1` 中存一个文件 `file` 里面是`JSON`数据格式
 - 在 `dir2` 中存一个 `index.html` 通过 `jQuery` 去访问 `file` 文件返回 `JSON` 或者你输入`file`文件中的内容的内容
 
+## 方法二
+
+`proxy.config.js` 的配置方法：
+
+```js
+
+module.exports = {
+  // Mock 数据返回
+  'GET /users': [{name:'kenny wang'}, {name:'JSLite doc'}],
+  'GET /users/1': {name:'JSLite api'},
+  'POST /users':{name:'JSLite'},
+  'POST /users/2':"22323sd",
+};
+```
+
+使用方法
+
+```bash
+$ ssr --proxy example/proxy.config.js -p 19992
+```
 
 ## 当前目录安装
 
-```
+```bash
 npm install ssr
 ```
 
