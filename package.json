@@ -30,6 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "colors-cli": "^1.0.7",
+    "iconv-lite": "^0.4.13",
     "yargs": "^3.27.0"
   }
 }

@@ -23,6 +23,10 @@ var argv = yargs
         // requiresArg: true,
         describe: "allows cross origin access serving",
         type: "boolean"
+    },
+    proxy: {
+        describe: "Local data mock",
+        type: "string"
     }
   })
   .requiresArg(true)

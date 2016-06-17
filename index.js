@@ -3,9 +3,11 @@ var http = require("http"),
     path = require("path"),
     fs = require("fs"),
     net = require("net"),
-    ctype = require("./lib/content-type"),
     color = require('colors-cli'),
+    iconv = require('iconv-lite'),
+    ctype = require("./lib/content-type"),
     catalog = require('./lib/catalog'),
+    confproxy = require('./lib/get-proxy-config'),
     __port = 1987,
     cors = false,
     server;
@@ -25,6 +27,21 @@ connListener = function(request, response) {
         };
 
     var ext = path.parse(request.url.replace(/\?.*$/g, "")).ext.replace('.','');
+    var pxval = confproxy[request.method+' '+uri];
+    if(pxval){
+        if(typeof obj === "function"){ pxval = pxval();}
+        if(isJson(pxval)){
+            _header['Content-Type'] = ctype.getContentType('json') + ';charset=utf-8';
+        }else if(typeof pxval == 'string'){
+            _header['Content-Type'] = ctype.getContentType('html') + ';charset=utf-8';
+        }
+        response.writeHead(200, _header);
+        response.write(  iconv.encode(JSON.stringify(pxval), 'utf-8').toString('binary')   , "binary");
+        response.end();
+        commandLog(200,request,response)
+        return;
+    }
+
     if(ext) _header['Content-Type'] = ctype.getContentType(ext);
 
     // url 解码
@@ -53,13 +70,20 @@ connListener = function(request, response) {
     }
 
 }
+
+function isJson(obj){
+    return typeof(obj) == "object" 
+        && Object.prototype.toString.call(obj).toLowerCase() == "[object object]" 
+        && !obj.length;
+}
+
 // 命令行颜色显示
 function commandLog(staus,request,response){
     var code = response.statusCode;
     if(code === 200){
-        console.log( 'INFO '.green_bt +  code.toString().green_bt + ' ' + request.url )
+        console.log( ('INFO ' + request.method + ' ' + code.toString() ).green_bt + ' ' + request.url )
     }else{
-        console.log( 'INFO '.red_bt +  code.toString().red_bt + ' ' + request.url );
+        console.log( ('INFO ' + request.method + ' ' + code.toString()).red_bt + ' ' + request.url );
     }
 }
 
@@ -131,6 +155,10 @@ function server(argv){
     if(argv && argv.port === true) pt = __port;
 
     (argv && argv.cors) ? cors = true : cors = false;
+
+    if(argv.proxy){
+        confproxy = confproxy(argv.proxy);
+    }
 
     serverStart(pt);
 }
