@@ -57,17 +57,31 @@ $ ssr -cp 2015   #端口设置 2015  并且 可以跨域访问
 
 ## 方法二
 
-`proxy.config.js` 的配置方法：
+[proxy.config.js](example/proxy.config.js) 的配置方法：
 
 ```js
 
 module.exports = {
-  // Mock 数据返回
-  'GET /users': [{name:'kenny wang'}, {name:'JSLite doc'}],
-  'GET /users/1': {name:'JSLite api'},
-  'POST /users':{name:'JSLite'},
-  'POST /users/2':"22323sd",
+    // Mock 数据返回
+    'GET /users': [{name:'kenny wang'}, {name:'JSLite doc'}],
+    'GET /users/1': {name:'JSLite api'},
+    'POST /users':{name:'JSLite'},
+    'POST /users/2':"22323sd",
+    'POST /users':function(data,url){
+        // data 接受传递数据
+        // url 请求
+        // 接受
+        // - form-data
+        // - x-www-form-urlencoded
+        // - raw
+        if(data.name === 'jslite'){
+            return {name:'卧槽121221'}
+        }else{
+            return {name:'yyy'}
+        }
+    }
 };
+
 ```
 
 使用方法
