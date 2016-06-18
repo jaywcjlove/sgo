@@ -8,6 +8,7 @@ var http = require("http"),
     ctype = require("./lib/content-type"),
     catalog = require('./lib/catalog'),
     confproxy = require('./lib/get-proxy-config'),
+    query = require("querystring"),    //解析POST请求
     __port = 1987,
     cors = false,
     server;
@@ -29,16 +30,37 @@ connListener = function(request, response) {
     var ext = path.parse(request.url.replace(/\?.*$/g, "")).ext.replace('.','');
     var pxval = confproxy[request.method+' '+uri];
     if(pxval){
-        if(typeof obj === "function"){ pxval = pxval();}
-        if(isJson(pxval)){
-            _header['Content-Type'] = ctype.getContentType('json') + ';charset=utf-8';
-        }else if(typeof pxval == 'string'){
-            _header['Content-Type'] = ctype.getContentType('html') + ';charset=utf-8';
-        }
-        response.writeHead(200, _header);
-        response.write(  iconv.encode(JSON.stringify(pxval), 'utf-8').toString('binary')   , "binary");
-        response.end();
-        commandLog(200,request,response)
+        var postData = null,arr = [];
+        request.addListener("data",function(postchunk){
+            arr.push(postchunk)
+        })
+
+        //POST结束输出结果
+        request.addListener("end",function(){
+            var data= Buffer.concat(arr).toString(),ret;
+            try{
+                ret = JSON.parse(data);
+            }catch(err){}
+            request.body = ret;
+
+            if(typeof pxval === "function"){
+                pxval = pxval(ret?ret:data,request.url);
+            }
+
+            response.writeHead(200, {
+                "Content-Type":(function(){
+                    if(isJson(pxval) || Object.prototype.toString.call(pxval)){
+                        return ctype.getContentType('json') + ';charset=utf-8';
+                    }else if(typeof pxval == 'string'){
+                        return ctype.getContentType('html') + ';charset=utf-8';
+                    }
+                    return '';
+                })()
+            });
+            response.write(  iconv.encode(JSON.stringify(pxval), 'utf-8').toString('binary')   , "binary");
+            response.end();
+            commandLog(200,request,response)
+        })
         return;
     }
 
