@@ -177,8 +177,8 @@ function server(argv){
     if(argv && argv.port === true) pt = __port;
 
     (argv && argv.cors) ? cors = true : cors = false;
-
-    if(argv.proxy){
+    
+    if(argv && argv.proxy){
         confproxy = confproxy(argv.proxy);
     }
 
