@@ -57,6 +57,7 @@ connListener = function(request, response) {
                     return '';
                 })()
             });
+            response.writeHead(200,_header);
             response.write(  iconv.encode(JSON.stringify(pxval), 'utf-8').toString('binary')   , "binary");
             response.end();
             commandLog(200,request,response)
