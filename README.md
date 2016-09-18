@@ -16,15 +16,15 @@ npm install -g ssr
 
 命令帮助。
 
-```
+```bash
 Usage: ssr [options]
 
 Options:
-  --help, -h         Show help                                        
-  --version, -V, -v  Show version number                              
-  --port, -p         Set the port!
-  --cors, -c         allows cross origin access serving
-  --proxy            Local data mock                         [string]
+  --help, -h         Show help # 展示帮助
+  --version, -V, -v  Show version number # 显示版本信息
+  --port, -p         Set the port! # 设置端口号
+  --cors, -c         allows cross origin access serving # 允许跨源访问服务
+  --proxy            Local data mock [string] # 本地模拟数据
 
   copyright 2015
 ```
@@ -34,7 +34,7 @@ Options:
 ```bash
 $ ssr           # 默认 端口 1987   访问地址：=> http://localhost:1987
 $ ssr -p 2015   # 端口设置 2015   访问地址：=> http://localhost:2015
-$ ssr -cp 2015   #端口设置 2015  并且 可以跨域访问
+$ ssr -cp 2015  # 端口设置 2015  并且 可以跨域访问
 ```
 
 **注意：** 默认不传端口，起多个服务不会发生端口冲突，尽情玩耍吧。
