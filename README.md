@@ -90,7 +90,13 @@ module.exports = {
 使用方法
 
 ```bash
-$ ssr --proxy example/proxy.config.js -p 19992
+ssr --proxy example/proxy.config.js -p 19992
+```
+
+允许跨源(跨域)访问服务 `--cors`
+
+```bash
+ssr --proxy example/proxy.config.js -p 19992 --cors
 ```
 
 ## 当前目录安装
