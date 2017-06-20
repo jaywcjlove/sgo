@@ -2,6 +2,12 @@
 
 <img align="right" height="150" src="./img/ssr.png">
 
+It provides a neat interface for listing the directory's contents and switching into sub folders.
+
+In addition, it's also awesome when it comes to serving static sites. If a directory contains an index.html, serve will automatically render it instead of serving directory contents, and will serve any .html file as a rendered page instead of file's content as plaintext.
+
+<img align="right" src="./img/ssr-safari.jpg">
+
 将一个目录设置成一个静态服务器。。大家肯定遇到过，当后端 API 没有编写完成时，前端无法进行调试，这就导致了前端会被后端阻塞的情况。而ssr相当于是搭建了一个 Mock Server ，构建假数据，然后把这些假数据存到 JSON 文件上，Mock Server 可以响应请求或者生成页面，当然也可以顺便生成 API 文档。
 
 - 强制跨域访问(AJAX请求不报错)
