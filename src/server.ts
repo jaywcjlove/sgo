@@ -26,7 +26,7 @@ export default async (args: IServerArgs) => {
   /**
    * Start file watching server
    */
-  http.createServer((request: IncomingMessage, res: ServerResponse) => {
+  http.createServer((req: IncomingMessage, res: ServerResponse) => {
     // Open the event stream for live reload
     res.writeHead(200, {
       Connection: "keep-alive",
@@ -39,9 +39,10 @@ export default async (args: IServerArgs) => {
     // Send a ping event every minute to prevent console errors
     setInterval(sendMessage, 60000, res, "ping", "still waiting");
     // Watch the target directory for changes and trigger reload
-    fs.watch(rootDir, { recursive: true }, () =>
-      sendMessage(res, "message", "reloading page")
-    );
+    fs.watch(rootDir, { persistent: false, recursive: true }, () => {
+      sendMessage(res, "message", "reloading page");
+      // console.log("\n \x1b[44m", "RELOADING", "\x1b[0m\n");
+    });
   }).listen(reloadPort);
 
   http.createServer(async (req: IncomingMessage, res: IServerResponse) => {
