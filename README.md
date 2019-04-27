@@ -1,6 +1,6 @@
 # ssr
 
-<img align="right" height="150" src="./img/ssr.png">
+<img align="right" width="250" src="./img/ssr.png">
 
 A dev server for rapid prototyping. It provides a neat interface for listing the directory's contents and switching into sub folders.
 
@@ -11,9 +11,10 @@ In addition, it's also awesome when it comes to serving static sites. If a direc
 **features**
 
 - 🗂 Serve static content like scripts, styles, images from a directory
-- 🖥 Reroute all non-file requests like / or /admin to a single file
+- 🖥 Reroute all non-file requests like `/` or `/admin` to a single file
 - ♻️ Reload the browser when project files get added, removed or modified
 - 📚 Readable source code that encourages learning and contribution
+- 💥 Remove the redundancy [proxy](https://github.com/jaywcjlove/mocker-api) feature, Please use [mocker-api](https://github.com/jaywcjlove/mocker-api).
 
 ## Usage
 
