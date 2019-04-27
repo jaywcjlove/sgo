@@ -26,6 +26,10 @@
     "argument",
     "tool"
   ],
+  "files": [
+    "lib",
+    ".bin"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jaywcjlove/ssr.git"
