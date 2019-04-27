@@ -2,118 +2,46 @@
 
 <img align="right" height="150" src="./img/ssr.png">
 
-It provides a neat interface for listing the directory's contents and switching into sub folders.
+A dev server for rapid prototyping. It provides a neat interface for listing the directory's contents and switching into sub folders.
 
 In addition, it's also awesome when it comes to serving static sites. If a directory contains an index.html, serve will automatically render it instead of serving directory contents, and will serve any .html file as a rendered page instead of file's content as plaintext.
 
 <img src="./img/ssr-safari.png">
 
-将一个目录设置成一个静态服务器。。大家肯定遇到过，当后端 API 没有编写完成时，前端无法进行调试，这就导致了前端会被后端阻塞的情况。而ssr相当于是搭建了一个 Mock Server ，构建假数据，然后把这些假数据存到 JSON 文件上，Mock Server 可以响应请求或者生成页面，当然也可以顺便生成 API 文档。
+**features**
 
-- 强制跨域访问(AJAX请求不报错)
-- 启动多个服务，自动解决`端口冲突`
-- 设置指定端口号
-- 构建 Mock Server 开发环境构建一个模拟的服务器
+- 🗂 Serve static content like scripts, styles, images from a directory
+- 🖥 Reroute all non-file requests like / or /admin to a single file
+- ♻️ Reload the browser when project files get added, removed or modified
+- 📚 Readable source code that encourages learning and contribution
 
-Mock Server 的概念非常简单，就是在开发环境构建一个模拟的服务器，然后构建假数据（Mock Data），再利用构建的假数据来进行开发。
+## Usage
 
-## 全局安装
+Add ssr as a dev dependency using `npm i ssr -D` or run directly from the terminal:
+
+```bash
+npx ssr [--port] [--dir]
+```
+### Install
 
 ```
 npm install -g ssr 
 ```
 
-命令帮助。
+Command help:
 
 ```bash
 Usage: ssr [options]
 
 Options:
-  --help, -h         Show help           # 展示帮助
-  --version, -V, -v  Show version number # 显示版本信息
-  --port, -p         Set the port!       # 设置端口号
-  --cors, -c         allows cross origin access serving # 允许跨源访问服务
-  --proxy            Local data mock        [string]    # 本地模拟数据
+  --version   Show version number                                      [boolean]
+  --port, -p  Set the port.                             [number] [default: 1987]
+  --dir, -d   Specified directory.                        [string] [default: ""]
+  --help      Show help                                                [boolean]
 
-  copyright 2015
-```
+Examples:
 
-命令使用 `ssr`  
-
-```bash
-$ ssr           # 默认 端口 1987   访问地址：=> http://localhost:1987
-$ ssr -p 2015   # 端口设置 2015   访问地址：=> http://localhost:2015
-$ ssr -cp 2015  # 端口设置 2015  并且 可以跨域访问
-```
-
-**注意：** 默认不传端口，起多个服务不会发生端口冲突，尽情玩耍吧。
-
-
-
-## 使用方法
-
-- 建两个目录文件 `dir1` 和 `dir2` 
-- 分别进入这两个目录使用`ssr`起服务
-- `dir1` 运行`ssr -cp 1987` 起来之后为 `http://localhost:1987`，`dir2` 运行 `ssr -cp 2015` 起来之后地址为 `http://localhost:2015`
-
-
-## 本地数据 mock
-
-### 方法一
-
-- 在 `dir1` 中存一个文件 `file` 里面是`JSON`数据格式
-- 在 `dir2` 中存一个 `index.html` 通过 `jQuery` 去访问 `file` 文件返回 `JSON` 或者你输入`file`文件中的内容的内容
-
-## 方法二
-
-[proxy.config.js](example/proxy.config.js) 的配置方法：
-
-```js
-
-module.exports = {
-    // Mock 数据返回
-    'GET /users': [{name:'kenny wang'}, {name:'JSLite doc'}],
-    'GET /users/1': {name:'JSLite api'},
-    'POST /users':{name:'JSLite'},
-    'POST /users/2':"22323sd",
-    'POST /users':function(data,url){
-        // data 接受传递数据
-        // url 请求
-        // 接受
-        // - form-data
-        // - x-www-form-urlencoded
-        // - raw
-        if(data.name === 'jslite'){
-            return {name:'卧槽121221'}
-        }else{
-            return {name:'yyy'}
-        }
-    }
-};
-
-```
-
-使用方法
-
-```bash
-ssr --proxy example/proxy.config.js -p 19992
-```
-
-允许跨源(跨域)访问服务 `--cors`
-
-```bash
-ssr --proxy example/proxy.config.js -p 19992 --cors
-```
-
-## 当前目录安装
-
-```bash
-npm install ssr
-```
-
-nodejs 中应用，这个在 [idoc文档生成工具中应用过了](https://github.com/jaywcjlove/idoc)
-
-```js
-var ssr = require('ssr');
-    ssr(1998);
+  $ ssr                      Start a dev server.
+  $ ssr -p 2019              Designated port.
+  $ ssr -d node_modules/dir  Designated port.
 ```
