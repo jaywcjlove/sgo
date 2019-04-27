@@ -7,21 +7,26 @@ import getFileDirectory from './getFileDirectory';
 import sortDirs from './sortDirs';
 
 
-export default async (res: IServerResponse, resource: string, message?: string) => {
+export default async (res: IServerResponse, resource: string, message: string = '') => {
   const filename: string = path.join(__dirname, '404.ejs');
+  const projectName: string = path.basename(res.projectDir)
   let html: string = '';
   try {
+    let nav: { [key: string]: any }[] = [{ name: projectName, path: '/' }]
+    html = (await fs.readFile(filename)).toString();
     if (res.fileDir && res.projectDir) {
       let dirs = await getFileDirectory(res.fileDir, res.projectDir);
       dirs = sortDirs(dirs);
-      html = (await fs.readFile(filename)).toString();
-      const nav = [...splitPath(res.pathname)];
+      nav = [...nav,...splitPath(res.pathname)];
       html = await ejs.render(html, {
         title: `Files within ssr${(nav[nav.length - 1] && nav[nav.length - 1].path) || '/'}`,
         nav,
-        projectName: path.basename(res.projectDir),
-        date: [...dirs]
+        projectName,
+        date: [...dirs],
+        message,
       }, { filename });
+    } else {
+      html = await ejs.render(html, { title: message, projectName, nav, date: [], message, }, { filename });
     }
   } catch (error) {
     console.log(error.message);

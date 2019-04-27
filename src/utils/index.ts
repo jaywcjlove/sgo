@@ -66,7 +66,11 @@ export interface ISplitPath {
  * 
  * ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
  * ```js
- * ['/exceptions', '/exceptions/not-found', '/exceptions/not-found/users']
+ * [
+ *  { name: 'exceptions', path: '/exceptions' },
+ *  { name: 'not-found', path: '/exceptions/not-found'},
+ *  { name: 'users', path: '/exceptions/not-found/users']
+ * }
  * ```
  */
 export function splitPath(paths: string): ISplitPath[] {

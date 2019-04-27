@@ -48,6 +48,8 @@ export default async (args: IServerArgs) => {
     let pathname = url.parse(req.url || '').pathname || '';
     let filePath = path.join(rootDir, pathname);
     const isExists = await fs.pathExists(filePath);
+    res.projectDir = rootDir;
+    res.pathname = pathname;
     if (!isExists) {
       return notFound(res, pathname, 'Not Found');
     }
@@ -57,8 +59,6 @@ export default async (args: IServerArgs) => {
       const isIndexExists = await fs.pathExists(path.join(filePath, 'index.html'));
       if (!isIndexExists) {
         res.fileDir = filePath;
-        res.projectDir = rootDir;
-        res.pathname = pathname;
         return notFound(res, path.join(pathname, 'index.html'));
       }
       filePath = path.join(filePath, 'index.html');
