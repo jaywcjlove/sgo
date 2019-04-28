@@ -18,6 +18,7 @@ In addition, it's also awesome when it comes to serving static sites. If a direc
 - ♻️ Reload the browser when project files get added, removed or modified
 - 📚 Readable source code that encourages learning and contribution
 - 💥 Remove the redundancy [proxy](https://github.com/jaywcjlove/mocker-api) feature, Please use [mocker-api](https://github.com/jaywcjlove/mocker-api).
+- 🙈 Preview the static page of the React/Vue/Angular project.
 
 <br />
 
@@ -45,10 +46,14 @@ Usage: ssr [options]
 Options:
   --version      Show version number                                   [boolean]
   --port, -p     Set the port.                          [number] [default: 1987]
-  --reload-port  Set the reload port.                   [number] [default: 19872]
+  --reload-port  Set the reload port.                  [number] [default: 19872]
+  --reload, -r   browser from reloading when files change.
+                                                       [boolean] [default: true]
   --dir, -d      Specified directory.                     [string] [default: ""]
   --browser, -b  Browser from opening when the server starts.
                                                        [boolean] [default: true]
+  --fallback     The file served for all non-file requests.
+                                                          [string] [default: ""]
   --help         Show help                                             [boolean]
 
 Examples:
@@ -56,6 +61,8 @@ Examples:
   $ ssr                      Start a dev server.
   $ ssr --no-browser         Prevents the browser from opening when the server
                              starts.
+  $ ssr --no-reload          prevents the browser from reloading when files
+                             change.
   $ ssr -p 2019              Designated port.
   $ ssr -d node_modules/dir  Designated port.
 
