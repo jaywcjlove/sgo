@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/jaywcjlove/ssr">
-    <img src="./img/kkt.ssr.svg?sanitize=true">
+    <img src="./img/logo.svg?sanitize=true">
   </a>
 </p>
 
