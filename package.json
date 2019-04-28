@@ -9,9 +9,11 @@
   "scripts": {
     "prepare": "npm run build",
     "type-check": "tsc --noEmit",
-    "build": "BABEL_ENV=cjs babel src --out-dir lib --extensions \".ts\" --source-maps inline --copy-files --delete-dir-on-start --verbose",
+    "build": "npm run build:cjs && npm run build:types",
+    "build:types": "tsc -p ./ -t es2015 --types --emitDeclarationOnly --outDir lib",
+    "build:cjs": "babel src --out-dir lib --extensions \".ts\" --source-maps inline --copy-files --delete-dir-on-start --verbose",
     "tsc": "tsc --removeComments",
-    "start": "npm run build -- --watch & npm run type-check -- --watch"
+    "start": "npm run build:cjs -- --watch & npm run type-check -- --watch"
   },
   "keywords": [
     "ssr",
