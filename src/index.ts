@@ -33,6 +33,11 @@ const command = yargs
     type: 'boolean',
     default: true,
   })
+  .option('fallback', {
+    describe: 'The file served for all non-file requests.',
+    type: 'string',
+    default: '',
+  })
   .option('help', {
     alias: 'h',
     describe: 'Show help.',
@@ -51,6 +56,5 @@ const command = yargs
 if (command.h) {
   yargs.help().showHelp();
 } else {
-  console.log('command:', command);
   server(command);
 }

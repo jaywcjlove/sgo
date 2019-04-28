@@ -11,6 +11,8 @@ import { IServerResponse } from './utils/props';
 
 export interface IServerArgs extends Arguments {
   port: number;
+  fallback: string;
+  'reload-port': number;
   dir?: string;
   proxy?: boolean;
   [key: string]: any;
@@ -30,20 +32,20 @@ export default async (args: IServerArgs) => {
   http.createServer((req: IncomingMessage, res: ServerResponse) => {
     // Open the event stream for live reload
     res.writeHead(200, {
-      Connection: "keep-alive",
-      "Content-Type": "text/event-stream",
-      "Cache-Control": "no-cache",
-      "Access-Control-Allow-Origin": "*"
+      Connection: 'keep-alive',
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Access-Control-Allow-Origin': '*'
     });
     // Send an initial ack event to stop request pending
-    sendMessage(res, "connected", "awaiting change");
+    sendMessage(res, 'connected', 'awaiting change');
     // Send a ping event every minute to prevent console errors
-    setInterval(sendMessage, 60000, res, "ping", "still waiting");
+    setInterval(sendMessage, 60000, res, 'ping', 'still waiting');
     if (args.reload) {
       // Watch the target directory for changes and trigger reload
       fs.watch(rootDir, { persistent: false, recursive: true }, () => {
-        sendMessage(res, "message", "reloading page");
-        // console.log("\n \x1b[44m", "RELOADING", "\x1b[0m\n");
+        sendMessage(res, 'message', 'reloading page');
+        // console.log('\n \x1b[44m', 'RELOADING', '\x1b[0m\n');
       });
     }
   }).listen(reloadPort);
@@ -55,6 +57,11 @@ export default async (args: IServerArgs) => {
     res.projectDir = rootDir;
     res.pathname = pathname;
     if (!isExists) {
+      if (args.fallback) {
+        console.log('\n \x1b[44m', 'Fallback', '\x1b[0m\n');
+        let fileStr = await fs.readFile(path.join(rootDir, args.fallback), 'binary')
+        return sendFile(res, pathname, 200, fileStr, 'html');
+      }
       return notFound(res, pathname, 'Not Found');
     }
 
