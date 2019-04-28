@@ -1,4 +1,7 @@
-# ssr
+ssr
+---
+
+[![](https://img.shields.io/github/issues/jaywcjlove/ssr.svg)](https://github.com/jaywcjlove/ssr/issues) [![](https://img.shields.io/github/forks/jaywcjlove/ssr.svg)](https://github.com/jaywcjlove/ssr/network) [![](https://img.shields.io/github/stars/jaywcjlove/ssr.svg)](https://github.com/jaywcjlove/ssr/stargazers) [![](https://img.shields.io/github/release/jaywcjlove/ssr.svg)](https://github.com/jaywcjlove/ssr/releases)
 
 <img align="right" width="250" src="./img/ssr.png">
 
@@ -16,13 +19,18 @@ In addition, it's also awesome when it comes to serving static sites. If a direc
 - 📚 Readable source code that encourages learning and contribution
 - 💥 Remove the redundancy [proxy](https://github.com/jaywcjlove/mocker-api) feature, Please use [mocker-api](https://github.com/jaywcjlove/mocker-api).
 
-## Usage
+<br />
+
+### Quick Start
 
 Add ssr as a dev dependency using `npm i ssr -D` or run directly from the terminal:
 
 ```bash
 npx ssr [--port] [--dir]
 ```
+
+<br />
+
 ### Install
 
 ```
@@ -45,4 +53,6 @@ Examples:
   $ ssr                      Start a dev server.
   $ ssr -p 2019              Designated port.
   $ ssr -d node_modules/dir  Designated port.
+
+Copyright 2019
 ```
