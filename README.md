@@ -43,14 +43,19 @@ Command help:
 Usage: ssr [options]
 
 Options:
-  --version   Show version number                                      [boolean]
-  --port, -p  Set the port.                             [number] [default: 1987]
-  --dir, -d   Specified directory.                        [string] [default: ""]
-  --help      Show help                                                [boolean]
+  --version      Show version number                                   [boolean]
+  --port, -p     Set the port.                          [number] [default: 1987]
+  --reload-port  Set the reload port.                   [number] [default: 19872]
+  --dir, -d      Specified directory.                     [string] [default: ""]
+  --browser, -b  Browser from opening when the server starts.
+                                                       [boolean] [default: true]
+  --help         Show help                                             [boolean]
 
 Examples:
 
   $ ssr                      Start a dev server.
+  $ ssr --no-browser         Prevents the browser from opening when the server
+                             starts.
   $ ssr -p 2019              Designated port.
   $ ssr -d node_modules/dir  Designated port.
 

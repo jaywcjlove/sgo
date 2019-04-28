@@ -1,4 +1,5 @@
 import http, { ServerResponse, IncomingMessage } from 'http';
+import childProcess from 'child_process';
 import { Arguments } from 'yargs';
 import getPort from 'get-port';
 import path from 'path';
@@ -16,7 +17,7 @@ export interface IServerArgs extends Arguments {
 }
 
 export default async (args: IServerArgs) => {
-  const reloadPort = await getPort();
+  const reloadPort = await getPort({ port: args.reloadPort });
   const port = await getPort({ port: args.port });
   const rootDir = path.resolve(process.cwd(), args.dir || '');
   if (port !== args.port) {
@@ -73,4 +74,8 @@ export default async (args: IServerArgs) => {
   console.log(`\n 🗂  Serving files from\x1b[33;1m ./${args.dir}\x1b[0m on \x1b[32;1m http://localhost:${port} \x1b[0m`);
   console.log(` 🖥  Using\x1b[32;1m index.html\x1b[0m as the fallback for route requests`);
   console.log(` ♻️  Reloading the browser when files under\x1b[33;1m ./${args.dir}\x1b[0m change\n`);
+
+  const open = process.platform == 'darwin' ? 'open' : process.platform == 'win32' ? 'start' : 'xdg-open';
+  args.browser && childProcess.exec(`${open} http://localhost:${port}`)
+  
 }
