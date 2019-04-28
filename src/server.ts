@@ -39,11 +39,13 @@ export default async (args: IServerArgs) => {
     sendMessage(res, "connected", "awaiting change");
     // Send a ping event every minute to prevent console errors
     setInterval(sendMessage, 60000, res, "ping", "still waiting");
-    // Watch the target directory for changes and trigger reload
-    fs.watch(rootDir, { persistent: false, recursive: true }, () => {
-      sendMessage(res, "message", "reloading page");
-      // console.log("\n \x1b[44m", "RELOADING", "\x1b[0m\n");
-    });
+    if (args.reload) {
+      // Watch the target directory for changes and trigger reload
+      fs.watch(rootDir, { persistent: false, recursive: true }, () => {
+        sendMessage(res, "message", "reloading page");
+        // console.log("\n \x1b[44m", "RELOADING", "\x1b[0m\n");
+      });
+    }
   }).listen(reloadPort);
 
   http.createServer(async (req: IncomingMessage, res: IServerResponse) => {
