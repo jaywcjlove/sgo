@@ -4,7 +4,23 @@
   </a>
 </p>
 
-[![](https://img.shields.io/github/issues/jaywcjlove/ssr.svg)](https://github.com/jaywcjlove/ssr/issues) [![](https://img.shields.io/github/forks/jaywcjlove/ssr.svg)](https://github.com/jaywcjlove/ssr/network) [![](https://img.shields.io/github/stars/jaywcjlove/ssr.svg)](https://github.com/jaywcjlove/ssr/stargazers) [![](https://img.shields.io/github/release/jaywcjlove/ssr.svg)](https://github.com/jaywcjlove/ssr/releases)
+<p align="center">
+  <a href="https://github.com/jaywcjlove/ssr/issues">
+    <img src="https://img.shields.io/github/issues/jaywcjlove/ssr.svg">
+  </a>
+  <a href="https://github.com/jaywcjlove/ssr/network">
+    <img src="https://img.shields.io/github/forks/jaywcjlove/ssr.svg">
+  </a>
+  <a href="https://github.com/jaywcjlove/ssr/stargazers">
+    <img src="https://img.shields.io/github/stars/jaywcjlove/ssr.svg">
+  </a>
+  <a href="https://github.com/jaywcjlove/ssr/releases">
+    <img src="https://img.shields.io/github/release/jaywcjlove/ssr.svg">
+  </a>
+  <a href="https://www.npmjs.com/package/ssr">
+    <img src="https://img.shields.io/npm/v/ssr.svg">
+  </a>
+</p>
 
 <img align="right" width="250" src="./img/ssr.png">
 
@@ -21,7 +37,7 @@ In addition, it's also awesome when it comes to serving static sites. If a direc
 - ♻️ Reload the browser when project files get added, removed or modified
 - 📚 Readable source code that encourages learning and contribution
 - 💥 Remove the redundancy [proxy](https://github.com/jaywcjlove/mocker-api) feature, Please use [mocker-api](https://github.com/jaywcjlove/mocker-api).
-- 🙈 Preview the static page of the React/Vue/Angular project.
+- ⚛️ Preview the static page of the React/Vue/Angular project.
 
 <br />
 
@@ -30,18 +46,15 @@ In addition, it's also awesome when it comes to serving static sites. If a direc
 Add ssr as a dev dependency using `npm i ssr -D` or run directly from the terminal:
 
 ```bash
+npm install -g ssr # install ssr
+ssr # Create server
+# or
 npx ssr [--port] [--dir]
 ```
 
 <br />
 
-### Install
-
-```
-npm install -g ssr 
-```
-
-Command help:
+### Command help
 
 ```bash
 Usage: ssr [options]
@@ -61,13 +74,48 @@ Options:
 
 Examples:
 
-  $ ssr                      Start a dev server.
-  $ ssr --no-browser         Prevents the browser from opening when the server
-                             starts.
-  $ ssr --no-reload          prevents the browser from reloading when files
-                             change.
-  $ ssr -p 2019              Designated port.
-  $ ssr -d node_modules/dir  Designated port.
+  $ ssr                            Start a dev server.
+  $ ssr --no-browser               Prevents the browser from opening when the
+                                   server starts.
+  $ ssr --no-reload                prevents the browser from reloading when
+                                   files change.
+  $ ssr --fallback dir/index.html  The file served for all non-file requests..
+  $ ssr -p 2019                    Designated port.
+  $ ssr -d node_modules/dir        Specified directory "node_modules/dir".
 
 Copyright 2019
 ```
+
+Example usage with npm scripts in a project's package.json file:
+
+```json
+{
+  "scripts": {
+    "start": "npx ssr -p 2019"
+  }
+}
+```
+
+<br />
+
+### Used in Node.js
+
+```js
+const ssr = require('ssr');
+
+// Create server
+ssr.default({ port: 1987, dir: '' });
+```
+
+```js
+import server from 'ssr';
+
+// Create server
+server({ port: 1987, dir: '' });
+```
+
+<br />
+
+### License
+
+MIT © Kenny Wong
