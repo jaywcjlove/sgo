@@ -47,8 +47,9 @@ const command = yargs
   .example('\n$ ssr', '\nStart a dev server.')
   .example('$ ssr --no-browser', 'Prevents the browser from opening when the server starts.')
   .example('$ ssr --no-reload', 'prevents the browser from reloading when files change.')
+  .example('$ ssr --fallback dir/index.html', 'The file served for all non-file requests..')
   .example('$ ssr -p 2019', 'Designated port.')
-  .example('$ ssr -d node_modules/dir', 'Designated port.')
+  .example('$ ssr -d node_modules/dir', 'Specified directory "node_modules/dir".')
   .locale('en')
   .epilog('Copyright 2019 \n')
   .argv;

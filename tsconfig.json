@@ -1,37 +1,23 @@
 {
   "compilerOptions": {
-    "baseUrl": "./lib",
-    "target": "es5",
-    "lib": [
-      "es2015",
-      "es6"
-    ],
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "resolveJsonModule": true,
+    "module": "commonjs",
     "esModuleInterop": true,
-    "isolatedModules": false,
-    "sourceMap": false,
-    "allowJs": false,
-    "moduleResolution": "node",
-    "rootDirs": [
-      "src",
-      "./"
-    ],
-    "outDir": "lib",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
+    "declaration": true,
+    "target": "es6",
     "noImplicitAny": true,
-    "importHelpers": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "lib",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "src/types/*"
+      ]
+    }
   },
-  "exclude": [
-    "node_modules",
-    "../../node_modules",
-    ".bin",
-    "lib"
+  "include": [
+    "src/**/*"
   ]
 }
