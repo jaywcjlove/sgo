@@ -1,4 +1,5 @@
 import http, { ServerResponse, IncomingMessage } from 'http';
+import chokidar, { FSWatcher } from 'chokidar';
 import childProcess from 'child_process';
 import { Arguments } from 'yargs';
 import getPort from 'get-port';
@@ -26,6 +27,22 @@ export default async (args: IServerArgs) => {
     console.log(' \x1b[43;1m', 'Warning:', '\x1b[0m', `fall back to a random port ${port}`)
   }
 
+  let watchRes: ServerResponse = null;
+
+  // Initialize watcher.
+  // Watch the target directory for changes and trigger reload
+  const watcher: FSWatcher = chokidar.watch(rootDir, {
+    ignored: /(^|[\/\\])\../,
+    persistent: true
+  });
+
+  watcher.on('change', (path: string, stats) => {
+    if (watchRes && args.reloa) {
+      sendMessage(watchRes, 'message', 'reloading page');
+      console.log('\n \x1b[44m', 'RELOADING', '\x1b[0m ', path.replace(rootDir, ''));
+    }
+  });
+
   /**
    * Start file watching server
    */
@@ -42,11 +59,7 @@ export default async (args: IServerArgs) => {
     // Send a ping event every minute to prevent console errors
     setInterval(sendMessage, 60000, res, 'ping', 'still waiting');
     if (args.reload) {
-      // Watch the target directory for changes and trigger reload
-      fs.watch(rootDir, { persistent: false, recursive: true }, () => {
-        sendMessage(res, 'message', 'reloading page');
-        // console.log('\n \x1b[44m', 'RELOADING', '\x1b[0m\n');
-      });
+      watchRes = res;
     }
   }).listen(reloadPort);
 
