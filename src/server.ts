@@ -37,7 +37,7 @@ export default async (args: IServerArgs) => {
   });
 
   watcher.on('change', (path: string, stats) => {
-    if (watchRes && args.reloa) {
+    if (watchRes && args.reload) {
       sendMessage(watchRes, 'message', 'reloading page');
       console.log('\n \x1b[44m', 'RELOADING', '\x1b[0m ', path.replace(rootDir, ''));
     }
