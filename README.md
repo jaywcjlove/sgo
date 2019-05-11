@@ -30,14 +30,14 @@ In addition, it's also awesome when it comes to serving static sites. If a direc
 
 <img src="./img/ssr-safari.png">
 
-**features**
+#### `Features`
 
-- 🗂 Serve static content like scripts, styles, images from a directory
-- 🖥 Reroute all non-file requests like `/` or `/admin` to a single file
-- ♻️ Reload the browser when project files get added, removed or modified
-- 📚 Readable source code that encourages learning and contribution
-- 💥 Remove the redundancy [proxy](https://github.com/jaywcjlove/mocker-api) feature, Please use [mocker-api](https://github.com/jaywcjlove/mocker-api).
-- ⚛️ Preview the static page of the React/Vue/Angular project.
+- 🗂 Serve static content like scripts, styles, images from a directory.  
+- 🖥 Reroute all non-file requests like `/` or `/admin` to a single file.  
+- ♻️ Reload the browser when project files get added, removed or modified.  
+- 📚 Readable source code that encourages learning and contribution.  
+- 💥 Remove the redundancy [proxy](https://github.com/jaywcjlove/mocker-api) feature, Please use [mocker-api](https://github.com/jaywcjlove/mocker-api).  
+- ⚛️ Preview the static page of the React/Vue/Angular project.  
 
 <br />
 
