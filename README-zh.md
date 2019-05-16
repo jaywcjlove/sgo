@@ -1,4 +1,4 @@
-[简体中文](README-zh.md)
+[简体中文](README.md)
 
 <p align="center">
   <a href="https://github.com/jaywcjlove/ssr">
@@ -26,37 +26,37 @@
 
 <img align="right" width="250" src="./img/ssr.png">
 
-A dev server for rapid prototyping. It provides a neat interface for listing the directory's contents and switching into sub folders.
+用于快速原型设计的开发服务。它提供了一个简洁的界面，用于列出目录的内容并切换到子文件夹，以当前目录为根目录快速起一个静态服务。
 
-In addition, it's also awesome when it comes to serving static sites. If a directory contains an index.html, serve will automatically render it instead of serving directory contents, and will serve any .html file as a rendered page instead of file's content as plaintext.
+此外，它在提供静态站点方面也很棒。 如果目录包含 `index.html` ，则serve将自动呈现它而不是提供目录内容，并将任何 `.html` 文件作为呈现页面而不是文件内容作为明文提供。
 
 <img src="./img/ssr-safari.png">
 
-#### `Features`
+#### `特征`
 
-🗂 Serve static content like scripts, styles, images from a directory.  
-🖥 Reroute all non-file requests like `/` or `/admin` to a single file.  
-♻️ Reload the browser when project files get added, removed or modified.  
-📚 Readable source code that encourages learning and contribution.  
-💥 Remove the redundancy [proxy](https://github.com/jaywcjlove/mocker-api) feature, Please use [mocker-api](https://github.com/jaywcjlove/mocker-api).  
-⚛️ Preview the static page of the React/Vue/Angular project.  
+🗂 提供目录中的脚本，样式，图像等静态内容。   
+🖥 将所有非文件请求（如`/`或`/ admin`）重新路由到单个文件。   
+♻️ 添加，删除或修改项目文件时重新加载浏览器。  
+📚 可读的 TypeScript 源代码，鼓励学习和贡献。  
+💥 删除冗余的 [proxy](https://github.com/jaywcjlove/mocker-api) 功能, 代理功能请使用 [mocker-api](https://github.com/jaywcjlove/mocker-api)。  
+⚛️ 支持预览 React/Vue/Angular 项目的静态页面。
 
 <br />
 
-### Quick Start
+### 快速开始
 
-Add ssr as a dev dependency using `npm i ssr -D` or run directly from the terminal:
+使用 `npm i ssr -D` 添加 `ssr` 作为 `dev` 依赖项或直接从终端运行：
 
 ```bash
-npm install -g ssr # install ssr
-ssr # Create server
-# or
+npm install -g ssr # 全局安装 ssr
+ssr # 创建一个服务
+# 或者
 npx ssr [--port] [--dir]
 ```
 
 <br />
 
-### Command help
+### 命令帮助
 
 ```bash
 Usage: ssr [options]
@@ -88,7 +88,7 @@ Examples:
 Copyright 2019
 ```
 
-Example usage with npm scripts in a project's package.json file:
+在项目的 `package.json` 文件中使用 `npm` 脚本的示例：
 
 ```json
 {
@@ -100,7 +100,7 @@ Example usage with npm scripts in a project's package.json file:
 
 <br />
 
-### Used in Node.js
+### 在 Node.js 中使用
 
 ```js
 const ssr = require('ssr');
