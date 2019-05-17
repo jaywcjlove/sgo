@@ -1,4 +1,4 @@
-[简体中文](README.md)
+[English](README.md)
 
 <p align="center">
   <a href="https://github.com/jaywcjlove/ssr">
