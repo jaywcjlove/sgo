@@ -19,7 +19,7 @@ export default async (res: IServerResponse, resource: string, message: string = 
       dirs = sortDirs(dirs);
       nav = [...nav,...splitPath(res.pathname)];
       html = await ejs.render(html, {
-        title: `Files within ssr${(nav[nav.length - 1] && nav[nav.length - 1].path) || '/'}`,
+        title: `Files within sgo${(nav[nav.length - 1] && nav[nav.length - 1].path) || '/'}`,
         nav,
         projectName,
         date: [...dirs],

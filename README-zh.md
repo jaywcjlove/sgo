@@ -30,6 +30,12 @@
 
 此外，它在提供静态站点方面也很棒。 如果目录包含 `index.html` ，则serve将自动呈现它而不是提供目录内容，并将任何 `.html` 文件作为呈现页面而不是文件内容作为明文提供。
 
+
+> 更名: `ssr` => `sgo`  
+> sgo: `Server Go` 的缩写  
+
+⚠️ `ssr` 已经捐赠给阿里某团队。
+
 <img src="./img/ssr-safari.png">
 
 #### `特征`
@@ -45,13 +51,13 @@
 
 ### 快速开始
 
-使用 `npm i ssr -D` 添加 `ssr` 作为 `dev` 依赖项或直接从终端运行：
+使用 `npm i sgo -D` 添加 `sgo` 作为 `dev` 依赖项或直接从终端运行：
 
 ```bash
-npm install -g ssr # 全局安装 ssr
-ssr # 创建一个服务
+npm install -g sgo # 全局安装 sgo
+sgo # 创建一个服务
 # 或者
-npx ssr [--port] [--dir]
+npx sgo [--port] [--dir]
 ```
 
 <br />
@@ -59,7 +65,7 @@ npx ssr [--port] [--dir]
 ### 命令帮助
 
 ```bash
-Usage: ssr [options]
+Usage: sgo [options]
 
 Options:
   --version      Show version number                                   [boolean]
@@ -76,14 +82,14 @@ Options:
 
 Examples:
 
-  $ ssr                            Start a dev server.
-  $ ssr --no-browser               Prevents the browser from opening when the
+  $ sgo                            Start a dev server.
+  $ sgo --no-browser               Prevents the browser from opening when the
                                    server starts.
-  $ ssr --no-reload                prevents the browser from reloading when
+  $ sgo --no-reload                prevents the browser from reloading when
                                    files change.
-  $ ssr --fallback dir/index.html  The file served for all non-file requests..
-  $ ssr -p 2019                    Designated port.
-  $ ssr -d node_modules/dir        Specified directory "node_modules/dir".
+  $ sgo --fallback dir/index.html  The file served for all non-file requests..
+  $ sgo -p 2019                    Designated port.
+  $ sgo -d node_modules/dir        Specified directory "node_modules/dir".
 
 Copyright 2019
 ```
@@ -93,7 +99,7 @@ Copyright 2019
 ```json
 {
   "scripts": {
-    "start": "npx ssr -p 2019"
+    "start": "npx sgo -p 2019"
   }
 }
 ```
@@ -103,10 +109,10 @@ Copyright 2019
 ### 在 Node.js 中使用
 
 ```js
-const ssr = require('ssr');
+const sgo = require('sgo');
 
 // Create server
-ssr.default({ port: 1987, dir: '' });
+sgo.default({ port: 1987, dir: '' });
 ```
 
 ```js

@@ -1,5 +1,6 @@
 /lib
 /node_modules
+/typings
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

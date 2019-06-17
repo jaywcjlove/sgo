@@ -30,6 +30,11 @@ A dev server for rapid prototyping. It provides a neat interface for listing the
 
 In addition, it's also awesome when it comes to serving static sites. If a directory contains an index.html, serve will automatically render it instead of serving directory contents, and will serve any .html file as a rendered page instead of file's content as plaintext.
 
+> Rename: `ssr` => `sgo`  
+> sgo: `Server Go`  
+
+⚠️ `ssr` package has been donated to a certain team in Ali.
+
 <img src="./img/ssr-safari.png">
 
 #### `Features`
@@ -45,13 +50,13 @@ In addition, it's also awesome when it comes to serving static sites. If a direc
 
 ### Quick Start
 
-Add ssr as a dev dependency using `npm i ssr -D` or run directly from the terminal:
+Add sgo as a dev dependency using `npm i sgo -D` or run directly from the terminal:
 
 ```bash
-npm install -g ssr # install ssr
-ssr # Create server
+npm install -g sgo # install sgo
+sgo # Create server
 # or
-npx ssr [--port] [--dir]
+npx sgo [--port] [--dir]
 ```
 
 <br />
@@ -59,7 +64,7 @@ npx ssr [--port] [--dir]
 ### Command help
 
 ```bash
-Usage: ssr [options]
+Usage: sgo [options]
 
 Options:
   --version      Show version number                                   [boolean]
@@ -76,14 +81,14 @@ Options:
 
 Examples:
 
-  $ ssr                            Start a dev server.
-  $ ssr --no-browser               Prevents the browser from opening when the
+  $ sgo                            Start a dev server.
+  $ sgo --no-browser               Prevents the browser from opening when the
                                    server starts.
-  $ ssr --no-reload                prevents the browser from reloading when
+  $ sgo --no-reload                prevents the browser from reloading when
                                    files change.
-  $ ssr --fallback dir/index.html  The file served for all non-file requests..
-  $ ssr -p 2019                    Designated port.
-  $ ssr -d node_modules/dir        Specified directory "node_modules/dir".
+  $ sgo --fallback dir/index.html  The file served for all non-file requests..
+  $ sgo -p 2019                    Designated port.
+  $ sgo -d node_modules/dir        Specified directory "node_modules/dir".
 
 Copyright 2019
 ```
@@ -93,7 +98,7 @@ Example usage with npm scripts in a project's package.json file:
 ```json
 {
   "scripts": {
-    "start": "npx ssr -p 2019"
+    "start": "npx sgo -p 2019"
   }
 }
 ```
@@ -103,14 +108,14 @@ Example usage with npm scripts in a project's package.json file:
 ### Used in Node.js
 
 ```js
-const ssr = require('ssr');
+const sgo = require('sgo');
 
 // Create server
-ssr.default({ port: 1987, dir: '' });
+sgo.default({ port: 1987, dir: '' });
 ```
 
 ```js
-import server from 'ssr';
+import server from 'sgo';
 
 // Create server
 server({ port: 1987, dir: '' });
