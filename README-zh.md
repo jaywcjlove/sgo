@@ -19,8 +19,8 @@
   <a href="https://github.com/jaywcjlove/ssr/releases">
     <img src="https://img.shields.io/github/release/jaywcjlove/ssr.svg">
   </a>
-  <a href="https://www.npmjs.com/package/ssr">
-    <img src="https://img.shields.io/npm/v/ssr.svg">
+  <a href="https://www.npmjs.com/package/sgo">
+    <img src="https://img.shields.io/npm/v/sgo.svg">
   </a>
 </p>
 
@@ -126,4 +126,4 @@ server({ port: 1987, dir: '' });
 
 ### License
 
-MIT © Kenny Wong
+MIT © [Kenny Wong](https://wangchujiang.com/)
