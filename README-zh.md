@@ -116,7 +116,7 @@ sgo.default({ port: 1987, dir: '' });
 ```
 
 ```js
-import server from 'ssr';
+import server from 'sgo';
 
 // Create server
 server({ port: 1987, dir: '' });
