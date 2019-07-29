@@ -1,23 +1,23 @@
 [简体中文](README-zh.md)
 
 <p align="center">
-  <a href="https://github.com/jaywcjlove/ssr">
+  <a href="https://github.com/jaywcjlove/sgo">
     <img src="./img/logo.svg?sanitize=true">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/jaywcjlove/ssr/issues">
-    <img src="https://img.shields.io/github/issues/jaywcjlove/ssr.svg">
+  <a href="https://github.com/jaywcjlove/sgo/issues">
+    <img src="https://img.shields.io/github/issues/jaywcjlove/sgo.svg">
   </a>
-  <a href="https://github.com/jaywcjlove/ssr/network">
-    <img src="https://img.shields.io/github/forks/jaywcjlove/ssr.svg">
+  <a href="https://github.com/jaywcjlove/sgo/network">
+    <img src="https://img.shields.io/github/forks/jaywcjlove/sgo.svg">
   </a>
-  <a href="https://github.com/jaywcjlove/ssr/stargazers">
-    <img src="https://img.shields.io/github/stars/jaywcjlove/ssr.svg">
+  <a href="https://github.com/jaywcjlove/sgo/stargazers">
+    <img src="https://img.shields.io/github/stars/jaywcjlove/sgo.svg">
   </a>
-  <a href="https://github.com/jaywcjlove/ssr/releases">
-    <img src="https://img.shields.io/github/release/jaywcjlove/ssr.svg">
+  <a href="https://github.com/jaywcjlove/sgo/releases">
+    <img src="https://img.shields.io/github/release/jaywcjlove/sgo.svg">
   </a>
   <a href="https://www.npmjs.com/package/sgo">
     <img src="https://img.shields.io/npm/v/sgo.svg">
