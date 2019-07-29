@@ -33,7 +33,7 @@ In addition, it's also awesome when it comes to serving static sites. If a direc
 > Rename: `ssr` => `sgo`  
 > sgo: `Server Go`  
 
-⚠️ `ssr` package has been donated to a certain team in Ali.
+⚠️ `ssr` package has been donated to a certain [team](https://github.com/ykfe) in Ali.
 
 <img src="./img/ssr-safari.png">
 
