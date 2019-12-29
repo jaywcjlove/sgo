@@ -4,6 +4,7 @@ import childProcess from 'child_process';
 import { Arguments } from 'yargs';
 import getPort from 'get-port';
 import path from 'path';
+import os from 'os';
 import url from 'url';
 import fs from 'fs-extra';
 import { sendMessage, sendFile, reloadScript, getExt } from './utils';
@@ -93,7 +94,17 @@ export default async (args: IServerArgs) => {
     sendFile(res, pathname, 200, ext === 'html' ? fileStr + reloadScript(reloadPort) : fileStr, ext);
   }).listen(port);
 
+  // ----------------------------------
+  // Get available IP addresses
+  // ----------------------------------
+  const interfaces = os.networkInterfaces();
+  const ips = Object.values(interfaces)
+    .reduce((a, b) => [...a, ...b], [])
+    .filter(ip => ip.family === 'IPv4' && ip.internal === false)
+    .map(ip => `http://${ip.address}:${port}`);
+
   console.log(`\n 🗂  Serving files from\x1b[33;1m ./${args.dir}\x1b[0m on \x1b[32;1m http://localhost:${port} \x1b[0m`);
+  ips.length > 0 && console.log(` 📡 Exposed to the network on \x1b[32;1m ${ips[0]}\x1b[0m`);
   console.log(` 🖥  Using\x1b[32;1m index.html\x1b[0m as the fallback for route requests`);
   console.log(` ♻️  Reloading the browser when files under\x1b[33;1m ./${args.dir}\x1b[0m change\n`);
 
