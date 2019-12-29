@@ -10,7 +10,7 @@
     "prepare": "npm run build",
     "watch": "npm run build:types -- --watch & npm run watch:ts",
     "build": "npm run build:ts & npm run build:types",
-    "build:types": "tsbb types --outDir typings --target ESNEXT",
+    "build:types": "tsbb types --target ESNEXT",
     "build:ts": "tsbb build",
     "watch:ts": "tsbb watch",
     "test": "tsbb test",
@@ -34,7 +34,6 @@
   "files": [
     "lib",
     "src",
-    "typings",
     ".bin"
   ],
   "repository": {
