@@ -10,7 +10,7 @@ const command = yargs
     alias: 'p',
     describe: 'Set the port.',
     type: 'number',
-    default: 1987,
+    default: Number(process.env.PORT) || 1987,
   })
   .option('reload-port', {
     describe: 'Set the reload port.',
