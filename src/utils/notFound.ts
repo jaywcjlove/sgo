@@ -12,12 +12,12 @@ export default async (res: IServerResponse, resource: string, message: string = 
   const projectName: string = path.basename(res.projectDir)
   let html: string = '';
   try {
-    let nav: { [key: string]: any }[] = [{ name: projectName, path: '/' }]
+    let nav = [{ name: projectName, path: '/' }];
     html = (await fs.readFile(filename)).toString();
     if (res.fileDir && res.projectDir) {
       let dirs = await getFileDirectory(res.fileDir, res.projectDir);
       dirs = sortDirs(dirs);
-      nav = [...nav,...splitPath(res.pathname)];
+      nav = [...nav, ...splitPath(res.pathname)];
       html = await ejs.render(html, {
         title: `Files within sgo${(nav[nav.length - 1] && nav[nav.length - 1].path) || '/'}`,
         nav,

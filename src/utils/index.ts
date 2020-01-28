@@ -22,7 +22,7 @@ export const sendFile = (res: ServerResponse, resource: string, status: number, 
     "Content-Type": mime[ext] || "application/octet-stream",
     "Access-Control-Allow-Origin": "*"
   });
-  res.write(file, "binary");
+  res.write(file);
   res.end();
   if (status !== 404) {
     console.log(" \x1b[42m", status, "\x1b[0m", `${resource}`);
