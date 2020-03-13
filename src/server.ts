@@ -89,7 +89,7 @@ export default async (args: IServerArgs) => {
       filePath = path.join(filePath, 'index.html');
       pathname = path.join(pathname, 'index.html');
     }
-    let fileStr = await fs.readFile(filePath, 'binary')
+    let fileStr = await fs.readFile(filePath, 'binary');
     const ext = getExt(filePath);
     sendFile(res, pathname, 200, ext === 'html' ? fileStr + reloadScript(reloadPort) : fileStr, ext);
   }).listen(port);
