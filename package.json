@@ -55,6 +55,6 @@
     "@types/fs-extra": "8.0.1",
     "@types/node": "13.5.0",
     "@types/yargs": "13.0.7",
-    "tsbb": "1.6.2"
+    "tsbb": "1.7.6"
   }
 }
