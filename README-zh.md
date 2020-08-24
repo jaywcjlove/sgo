@@ -24,7 +24,7 @@
   </a>
 </p>
 
-<img align="right" width="250" src="./img/ssr.png">
+<img align="right" width="250" src="./img/sgo.png">
 
 用于快速原型设计的开发服务。它提供了一个简洁的界面，用于列出目录的内容并切换到子文件夹，以当前目录为根目录快速起一个静态服务。
 
@@ -36,7 +36,7 @@
 
 ⚠️ `ssr` 已经捐赠给阿里某团队。
 
-<img src="./img/ssr-safari.png">
+<img src="./img/sgo-safari.png">
 
 #### `特征`
 
