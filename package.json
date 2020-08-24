@@ -54,7 +54,7 @@
     "@types/ejs": "3.0.0",
     "@types/fs-extra": "8.0.1",
     "@types/node": "13.5.0",
-    "@types/yargs": "13.0.7",
+    "@types/yargs": "13.0.10",
     "tsbb": "1.6.2"
   }
 }
