@@ -24,7 +24,7 @@
   </a>
 </p>
 
-<img align="right" width="250" src="./img/ssr.png">
+<img align="right" width="250" src="./img/sgo.png">
 
 A dev server for rapid prototyping. It provides a neat interface for listing the directory's contents and switching into sub folders.
 
@@ -35,7 +35,7 @@ In addition, it's also awesome when it comes to serving static sites. If a direc
 
 ⚠️ `ssr` package has been donated to a certain [team](https://github.com/ykfe) in Ali.
 
-<img src="./img/ssr-safari.png">
+<img src="./img/sgo-safari.png">
 
 #### `Features`
 
