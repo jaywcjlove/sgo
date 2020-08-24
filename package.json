@@ -43,18 +43,18 @@
   "author": "kenny wang <wowohoo@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.8.3",
-    "chokidar": "^3.3.1",
-    "ejs": "^3.0.1",
-    "fs-extra": "^9.0.0",
+    "@babel/runtime": "^7.11.2",
+    "chokidar": "^3.4.2",
+    "ejs": "^3.1.5",
+    "fs-extra": "^9.0.1",
     "get-port": "^5.1.1",
-    "yargs": "^15.1.0"
+    "yargs": "^15.4.1"
   },
   "devDependencies": {
-    "@types/ejs": "3.0.0",
-    "@types/fs-extra": "8.0.1",
-    "@types/node": "13.5.0",
-    "@types/yargs": "13.0.7",
-    "tsbb": "1.6.2"
+    "@types/ejs": "3.0.4",
+    "@types/fs-extra": "9.0.1",
+    "@types/node": "14.6.0",
+    "@types/yargs": "15.0.5",
+    "tsbb": "1.7.6"
   }
 }
