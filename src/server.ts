@@ -1,7 +1,7 @@
 import http, { ServerResponse, IncomingMessage } from 'http';
 import chokidar, { FSWatcher } from 'chokidar';
 import childProcess from 'child_process';
-import { Arguments } from 'yargs';
+import { ParsedArgs } from 'minimist';
 import getPort from 'get-port';
 import path from 'path';
 import os from 'os';
@@ -11,17 +11,18 @@ import { sendMessage, sendFile, reloadScript, getExt } from './utils';
 import notFound from './utils/notFound';
 import { IServerResponse } from './utils/props';
 
-export interface IServerArgs extends Arguments {
+export type SgoArgs = ParsedArgs | {
   port: number;
   fallback: string;
+  reload: boolean;
   'reload-port': number;
   dir?: string;
   proxy?: boolean;
-  [key: string]: any;
+  browser?: boolean;
 }
 
-export default async (args: IServerArgs) => {
-  const reloadPort = await getPort({ port: args.reloadPort });
+export default async (args: SgoArgs) => {
+  const reloadPort = await getPort({ port: args['reload-port'] });
   const port = await getPort({ port: args.port });
   const rootDir = path.resolve(process.cwd(), args.dir || '');
   if (port !== args.port) {

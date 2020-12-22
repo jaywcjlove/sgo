@@ -1,5 +1,6 @@
 import { ServerResponse } from 'http';
 import types from './types.json';
+import mimeTypes from './mimeTypes';
 
 const mime: Record<string, string> = Object.entries(types).reduce(
   (all, [type, exts]) => Object.assign(all, [...exts].map(ext => ({ [ext]: type }))), {}
@@ -16,9 +17,8 @@ export const sendMessage = (res: ServerResponse, channel: string, data: string) 
 };
 
 export const sendFile = (res: ServerResponse, resource: string, status: number, file: string, ext: string) => {
-  
   res.writeHead(status, {
-    "Content-Type": mime[ext] || "application/octet-stream",
+    "Content-Type": mimeTypes(ext),
     "Access-Control-Allow-Origin": "*"
   });
   res.write(file, 'binary');
