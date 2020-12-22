@@ -6,6 +6,7 @@
     "sgo": "lib/sgo.js"
   },
   "main": "lib/server.js",
+  "typings": "lib/server.d.ts",
   "scripts": {
     "prepare": "npm run build",
     "watch": "npm run build:types -- --watch & npm run watch:ts",
