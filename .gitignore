@@ -1,4 +1,5 @@
 /lib
+/docs
 /node_modules
 /typings
 npm-debug.log*
