@@ -5,6 +5,11 @@ import server from './server';
 
 ;(() => {
   const argvs = minimist(process.argv.slice(2));
+  const pkg = require('../package.json');
+  if (argvs.v || argvs.version) {
+    console.log(` sgo v${pkg.version}`);
+    return;
+  }
   if (argvs.h || argvs.help) {
     console.log('  Usage: sgo [options]');
     console.log('');
@@ -40,7 +45,7 @@ import server from './server';
   if (argvs.browser === undefined) argvs.browser = argvs.b = true;
   if (!argvs.port) argvs.port = argvs.p = Number(process.env.PORT) || 1987;
   if (!argvs.dir) argvs.dir = argvs.d = '';
-  if (!argvs.fallback) argvs.fallback = argvs.d = '';
+  if (!argvs.fallback) argvs.fallback = '';
   if (!argvs['reload-port'])argvs['reload-port'] = 19872;
   server(argvs);
 
