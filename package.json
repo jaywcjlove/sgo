@@ -1,6 +1,6 @@
 {
   "name": "sgo",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "Setting a directory to a static server.",
   "bin": {
     "sgo": "lib/sgo.js"
