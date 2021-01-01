@@ -16,3 +16,5 @@ jobs:
 
     - run: npm install
     - run: npm run build
+    - run: npm install typedoc@0.20.7
+    - run: ./node_modules/.bin/typedoc src/server.ts --name sgo
