@@ -1,4 +1,4 @@
-name: GitHub Actions Build SGO
+name: Build & Deploy
 on:
   push:
     branches:
@@ -18,3 +18,9 @@ jobs:
     - run: npm run build
     - run: npm install typedoc@0.20.7
     - run: ./node_modules/.bin/typedoc src/server.ts --name sgo
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./docs
