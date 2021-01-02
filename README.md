@@ -2,25 +2,28 @@
 
 <p align="center">
   <a href="https://github.com/jaywcjlove/sgo">
-    <img src="./img/logo.svg?sanitize=true">
+    <img alt="sgo logo" src="./img/logo.svg?sanitize=true">
   </a>
 </p>
 
 <p align="center">
+  <a href="https://github.com/jaywcjlove/sgo/actions">
+    <img alt="Build & Deploy" src="https://github.com/jaywcjlove/sgo/workflows/Build%20&%20Deploy/badge.svg">
+  </a>
   <a href="https://github.com/jaywcjlove/sgo/issues">
-    <img src="https://img.shields.io/github/issues/jaywcjlove/sgo.svg">
+    <img alt="Issue" src="https://img.shields.io/github/issues/jaywcjlove/sgo.svg">
   </a>
   <a href="https://github.com/jaywcjlove/sgo/network">
-    <img src="https://img.shields.io/github/forks/jaywcjlove/sgo.svg">
+    <img alt="Forks" src="https://img.shields.io/github/forks/jaywcjlove/sgo.svg">
   </a>
   <a href="https://github.com/jaywcjlove/sgo/stargazers">
-    <img src="https://img.shields.io/github/stars/jaywcjlove/sgo.svg">
+    <img alt="Stars" src="https://img.shields.io/github/stars/jaywcjlove/sgo.svg">
   </a>
   <a href="https://github.com/jaywcjlove/sgo/releases">
-    <img src="https://img.shields.io/github/release/jaywcjlove/sgo.svg">
+    <img alt="Releases" src="https://img.shields.io/github/release/jaywcjlove/sgo.svg">
   </a>
   <a href="https://www.npmjs.com/package/sgo">
-    <img src="https://img.shields.io/npm/v/sgo.svg">
+    <img alt="npm version" src="https://img.shields.io/npm/v/sgo.svg">
   </a>
 </p>
 
