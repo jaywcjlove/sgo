@@ -1,6 +1,6 @@
 {
   "name": "sgo",
-  "version": "2.4.3",
+  "version": "3.0.0",
   "description": "Setting a directory to a static server.",
   "bin": {
     "sgo": "lib/sgo.js"
@@ -10,6 +10,7 @@
     "prepare": "npm run build",
     "build": "tsbb build --no-esm --disable-babel --entry src/sgo.ts",
     "watch": "tsbb watch --no-esm --disable-babel --entry src/sgo.ts",
+    "type-check": "tsc --noEmit",
     "test": "tsbb test",
     "coverage": "tsbb test --coverage"
   },
