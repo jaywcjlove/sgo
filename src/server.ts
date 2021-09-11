@@ -29,7 +29,7 @@ export default async (args: SgoArgs) => {
     console.log(' \x1b[43;1m', 'Warning:', '\x1b[0m', `fall back to a random port ${port}`)
   }
 
-  let watchRes: ServerResponse = null;
+  let watchRes: ServerResponse;
 
   // Initialize watcher.
   // Watch the target directory for changes and trigger reload
