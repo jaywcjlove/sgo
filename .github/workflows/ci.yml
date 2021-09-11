@@ -7,20 +7,18 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
-
-    - name: Setup Node
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
       with:
-        node-version: '10.x'
+        node-version: 14
 
     - run: npm install
     - run: npm run build
-    - run: npm install typedoc@0.20.7
-    - run: ./node_modules/.bin/typedoc src/server.ts --name sgo
+    - run: npm install typedoc@0.22.2 -g
+    - run: typedoc src/server.ts --name sgo
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
