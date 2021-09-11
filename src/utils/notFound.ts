@@ -11,6 +11,7 @@ export default async (res: IServerResponse, resource: string, message: string = 
   const filename: string = path.join(__dirname, '404.ejs');
   const projectName: string = path.basename(res.projectDir)
   let html: string = '';
+  const pgk = require('../../package.json');
   try {
     let nav = [{ name: projectName, path: '/' }];
     html = (await fs.readFile(filename)).toString();
@@ -18,9 +19,10 @@ export default async (res: IServerResponse, resource: string, message: string = 
       let dirs = await getFileDirectory(res.fileDir, res.projectDir);
       dirs = sortDirs(dirs);
       nav = [...nav, ...splitPath(res.pathname)];
-      html = await ejs.render(html, {
+      html = ejs.render(html, {
         title: `Files within sgo${(nav[nav.length - 1] && nav[nav.length - 1].path) || '/'}`,
         nav,
+        version: pgk.version,
         projectName,
         date: [...dirs],
         message,
