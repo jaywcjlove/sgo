@@ -29,7 +29,7 @@ jobs:
       uses: jaywcjlove/create-tag-action@v1.2.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        package-path: ./packages/tsbb/package.json
+        package-path: ./package.json
 
     - name: Generate Changelog
       id: changelog
