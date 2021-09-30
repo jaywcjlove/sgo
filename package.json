@@ -2,10 +2,13 @@
   "name": "sgo",
   "version": "3.0.0",
   "description": "Setting a directory to a static server.",
+  "homepage": "https://jaywcjlove.github.io/sgo/",
+  "author": "kenny wang <wowohoo@qq.com>",
+  "main": "lib/server.js",
+  "license": "MIT",
   "bin": {
     "sgo": "lib/sgo.js"
   },
-  "main": "lib/server.js",
   "scripts": {
     "prepare": "npm run build",
     "build": "tsbb build --no-esm --disable-babel --entry src/sgo.ts",
@@ -38,8 +41,12 @@
     "type": "git",
     "url": "https://github.com/jaywcjlove/sgo.git"
   },
-  "author": "kenny wang <wowohoo@qq.com>",
-  "license": "MIT",
+  "markdown-to-html": {
+    "reurls": {
+      "README-zh.md": "index.zh.html",
+      "README.md": "index.html"
+    }
+  },
   "dependencies": {
     "chokidar": "3.5.2",
     "ejs": "3.1.6",

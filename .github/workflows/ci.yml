@@ -18,6 +18,10 @@ jobs:
     - run: npm install typedoc@0.22.2 typescript -g
     - run: typedoc src/server.ts --name sgo
 
+    - run: npm i markdown-to-html-cli -g
+    - run: markdown-to-html --output docs/index.html
+    - run: markdown-to-html --source README-zh.md --output docs/index.zh.html
+
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
@@ -33,12 +37,12 @@ jobs:
 
     - name: Generate Changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.4.3
+      uses: jaywcjlove/changelog-generator@v1.4.6
       if: steps.create_tag.outputs.successful
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         head-ref: ${{ steps.create_tag.outputs.version }}
-        filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
+        filter-author: (小弟调调™|Renovate Bot)
         filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
 
     - name: Create Release
