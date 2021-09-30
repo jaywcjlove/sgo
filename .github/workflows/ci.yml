@@ -19,6 +19,7 @@ jobs:
     - run: npm install typedoc@0.22.2 typescript -g
     - run: typedoc src/server.ts --name sgo --out docs/type
 
+    - run: cp -rp img docs
     - run: npm i markdown-to-html-cli -g
     - run: markdown-to-html --output docs/index.html
     - run: markdown-to-html --source README-zh.md --output docs/index.zh.html
