@@ -50,7 +50,7 @@
   "dependencies": {
     "chokidar": "3.5.2",
     "ejs": "3.1.6",
-    "fs-extra": "10.0.0",
+    "fs-extra": "10.1.0",
     "get-port": "5.1.1",
     "minimist": "1.2.5"
   },
