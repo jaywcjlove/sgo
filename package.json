@@ -50,13 +50,13 @@
   "dependencies": {
     "chokidar": "3.5.2",
     "ejs": "3.1.6",
-    "fs-extra": "10.0.0",
+    "fs-extra": "11.1.1",
     "get-port": "5.1.1",
     "minimist": "1.2.5"
   },
   "devDependencies": {
     "@types/ejs": "3.1.0",
-    "@types/fs-extra": "9.0.13",
+    "@types/fs-extra": "11.0.1",
     "@types/minimist": "1.2.2",
     "@types/node": "16.9.1",
     "tsbb": "3.3.7"
