@@ -28,7 +28,7 @@ export default async (res: IServerResponse, resource: string, message: string = 
         message,
       }, { filename });
     } else {
-      html = await ejs.render(html, { title: message, projectName, nav, date: [], message, }, { filename });
+      html = await ejs.render(html, { title: message, projectName, nav, date: [], message, version: pgk.version }, { filename });
     }
   } catch (error) {
     console.log(error.message);
