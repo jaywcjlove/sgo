@@ -59,6 +59,6 @@
     "@types/fs-extra": "9.0.13",
     "@types/minimist": "1.2.2",
     "@types/node": "16.9.1",
-    "tsbb": "3.3.7"
+    "tsbb": "4.0.1"
   }
 }
