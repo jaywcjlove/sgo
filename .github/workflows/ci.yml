@@ -17,7 +17,7 @@ jobs:
       - run: npm run build
       - run: npm run type-check
       - run: mkdir -p docs
-      - run: npm install typedoc@0.22.2 typescript -g
+      - run: npm install typedoc@0.23.28 typescript -g
       - run: typedoc src/server.ts --name sgo --out docs/type
 
       - run: cp -rp img docs
