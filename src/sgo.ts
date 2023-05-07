@@ -40,14 +40,16 @@ import server from './server';
     console.log('  Copyright 2020');
     return;
   }
-  if (argvs.reload === undefined || argvs.r) argvs.reload = argvs.r = true;
-  if (argvs.browser === undefined || argvs.b) argvs.browser = argvs.b = true;
-  if (!argvs.port) argvs.port = argvs.p = Number(process.env.PORT) || 1987;
-  if (argvs.p) argvs.port = argvs.p;
-  if (!argvs.dir) argvs.dir = argvs.d = '';
-  if (argvs.d) argvs.dir = argvs.d;
-  if (!argvs.fallback) argvs.fallback = '';
-  if (!argvs['reload-port'])argvs['reload-port'] = 19872;
+  argvs.reload = argvs.reload || argvs.b || true;
+  argvs.b = argvs.reload;
+  argvs.browser = argvs.browser || argvs.b || true;
+  argvs.b = argvs.browser;
+  argvs.port = argvs.port || argvs.p || Number(process.env.PORT) || 1987;
+  argvs.p = argvs.port;
+  argvs.dir = argvs.dir || argvs.d || '';
+  argvs.d = argvs.dir;
+  argvs.fallback = argvs.fallback || '';
+  argvs['reload-port'] = argvs['reload-port'] || 19872;
   server(argvs);
 
 })();
