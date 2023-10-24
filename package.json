@@ -59,7 +59,7 @@
     "@types/ejs": "^3.1.2",
     "@types/fs-extra": "^11.0.1",
     "@types/minimist": "^1.2.2",
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.0.0",
     "@uiw/doc": "^4.21.28",
     "tsbb": "^4.0.1"
   }
