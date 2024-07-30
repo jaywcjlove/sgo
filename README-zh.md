@@ -1,8 +1,8 @@
-[English](README.md)
+[English](README.md) • <ruby> [sgo](https://github.com/jaywcjlove/sgo-rs) <rt>rust</rt></ruby>
 
 <p align="center">
   <a href="https://github.com/jaywcjlove/sgo">
-    <img alt="sgo logo" src="./img/logo.svg?sanitize=true">
+    <img alt="sgo logo" src="./img/banner.svg?sanitize=true">
   </a>
 </p>
 
